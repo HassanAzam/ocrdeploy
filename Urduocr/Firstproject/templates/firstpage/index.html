@@ -1,0 +1,157 @@
+
+<html>
+<head>
+        {% load static %}
+        
+    <style>
+        body{ background:url("{%static 'images/a.png'%}");
+    height:100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    position:absolute;
+        }
+.avatar{
+width: 200px;
+height: 60px;
+position: absolute;
+top: -35px;
+left: calc(36% - 50px);
+border-radius: 30px;
+border: 2px solid rgb(0, 153, 255)  ;
+
+}
+.container {
+    width: 350px;
+height: 400px;
+background:  rgba(0,0,0,0.5)  ;
+color: #fff;
+top: 61%;
+left: 50%;
+position: absolute;
+transform: translate(-50% , -50%);
+box-sizing: border-box;
+border-radius: 3px;
+font-size:large;
+padding: 70px 30px;
+box-shadow: 10px 25px 35px rgba(34, 33, 33, 0.9); 
+}
+.fetch{margin-top: 50px;
+    width: 330px;
+height: 200px;
+    top: 60%;
+left: 50%;
+position: absolute;
+transform: translate(-50% , -50%);
+background:rgba(0,0,0,0.5);
+border: none;
+border-bottom:1.5px solid  rgb(0, 153, 255) ;
+color: #f8c408;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 20px;
+border-radius: 3px;
+text-align:right;
+
+}
+.container input[type="file"]
+{
+    top: 16%;
+left: 50%;
+position: absolute;
+transform: translate(-50% , -50%);
+margin-left:2px;
+background:rgba(0,0,0,0.5);
+padding-right: 80px;
+padding-top: 8px;
+padding-bottom: 8px;
+border-bottom:1.5px solid  rgb(0, 153, 255) ;
+border-radius: 3px;
+
+}
+.container button[type="submit"]
+{
+    width: 100px;
+height: 30px;
+background:#ffc107   ;
+border:none;
+top: 30%;
+left: 50%;
+position: absolute;
+transform: translate(-50% , -50%);
+text-align: center;
+padding-left: 2px;
+border-radius: 10px;
+color: black;
+font-size: 12px
+}
+.container button[type="submit"]:hover
+{
+    width: 100px;
+height: 30px;
+background:#DAA520   ;
+border:none;
+top: 30%;
+left: 50%;
+position: absolute;
+transform: translate(-50% , -50%);
+text-align: center;
+padding-left: 2px;
+border-radius: 10px;
+color: black;
+cursor: pointer;
+}
+header{
+    top: 7%;
+left: 50%;
+    position: absolute;
+transform: translate(-50% , -50%);
+padding-left: 550px;
+padding-right: 660px;
+    background: rgba(0,0,0,0.5); 
+   
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(34, 33, 33, 0.9); 
+    
+}
+
+header img{
+    margin-right: 20px;
+    margin-left: 255px;
+    height: 60px;
+   margin-top: -100px;
+    border-radius: 50px;
+   
+}
+header h2{
+    margin-left: 85px;
+    color:black ;
+    line-height: 75px;
+margin-top :20px;
+font-family: 'Trebuchet MS',  sans-serif;
+font-size: 40px;background: #ffd000;
+border-radius:20px; 
+padding-right: 40px;
+
+
+}
+</style>
+    <title>Urdu Ocr</title>
+</head>
+<body >
+    <header><h2>URDU-</h2>
+        <img src="{% static 'images/urdu.png' %}" alt=""></header>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <img class="avatar" src="{% static 'images/urduocr.jpg' %}"> 
+        {% csrf_token %}
+        {{ form.image }}
+        <button type="submit">Convert</button><br><br><br>
+        <p style="margin-top:25px ; font-size: 12px;padding: 3px; font-family: 'Trebuchet MS',  sans-serif;text-align: center; border-bottom: 1.2px solid rgb(0, 153, 255) ;background: rgba(0,0,0,0.5);color: white;">Get your <b>TEXT</b> here.</p>
+        
+        <textarea class="fetch" name="fetch" >{{ img }}</textarea>
+      </form>
+
+</div>
+
+</body>
+
+</html>
